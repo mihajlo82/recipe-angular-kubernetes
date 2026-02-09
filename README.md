@@ -1,27 +1,73 @@
-# RecipeAppClient
+# Recipe App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+A modern **Recipe Web Application** built with **Angular**, containerized with **Docker**, and deployed locally on **Kubernetes (Minikube)**. The project demonstrates building a full-stack frontend, containerization, and CI/CD workflow simulation.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Table of Contents
 
-## Code scaffolding
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Run Locally](#run-locally)
+- [Docker Setup](#docker-setup)
+- [Kubernetes Deployment](#kubernetes-deployment)
+- [Simulated CI/CD](#simulated-cicd)
+- [Future Improvements](#future-improvements)
+- [Author](#author)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## Project Overview
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This project is a **Recipe Web App** built with **Angular**. Users can browse recipes, filter by categories, search by name, and view recipe details. The app is **containerized with Docker** and deployed to a local **Minikube Kubernetes cluster**. Additionally, a **CI/CD workflow** is simulated to automate builds and deployments.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Features
 
-## Running end-to-end tests
+- Browse a grid of recipe cards
+- Filter recipes by category
+- Search recipes by name
+- View detailed recipe information on a separate page
+- Responsive UI with SCSS styling
+- Containerized for easy deployment
+- CI/CD workflow simulation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+## Technologies Used
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+| Layer | Technology |
+|-------|------------|
+| Frontend | Angular 17 |
+| Styling | SCSS |
+| Containerization | Docker |
+| Local Kubernetes | Minikube |
+| CI/CD Simulation | GitHub Actions |
+| Deployment | Kubernetes Deployment & Service |
+| Version Control | Git + GitHub |
+
+---
+
+## Project Structure
+```
+recipe-app-client/
+├─ src/
+│ ├─ app/
+│ │ ├─ components/
+│ │ │ ├─ recipe-card/
+│ │ │ └─ filter-bar/
+│ │ ├─ pages/
+│ │ │ └─ home/
+│ │ └─ app.module.ts / app.component.ts
+├─ k8s/
+│ ├─ deployment.yaml
+│ └─ service.yaml
+├─ Dockerfile
+├─ package.json
+└─ README.md
+```
