@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: recipe-app
-          image: recipe-app:latest
-          imagePullPolicy: Never   # <-- THIS IS REQUIRED
+          image: mihidimi82/recipe-app:latest
+          imagePullPolicy: IfNotPresent   # <-- THIS IS REQUIRED
           ports:
             - containerPort: 80

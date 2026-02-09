@@ -1,0 +1,53 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repo
+      - uses: actions/checkout@v3
+
+      # 2️⃣ Setup Node
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      # 3️⃣ Install dependencies
+      - run: npm ci
+
+      # 4️⃣ Build Angular
+      - run: npm run build -- --configuration production
+
+      # 5️⃣ Setup Docker
+      - uses: docker/setup-buildx-action@v2
+
+      # 6️⃣ Login to DockerHub
+      - uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # 7️⃣ Build Docker image
+      - run: |
+          docker build -t recipe-app:latest .
+          docker tag recipe-app:latest mihidimi82/recipe-app:latest
+
+      # 8️⃣ Push Docker image
+      - run: docker push mihidimi82/recipe-app:latest
+
+      # 9️⃣ Deploy to Kubernetes (optional)
+      # - name: Set up kubectl
+      #   uses: azure/setup-kubectl@v3
+      #   with:
+      #     version: v1.29.0
+
+      - name: Update deployment
+        run: |
+          kubectl set image deployment/recipe-app recipe-app=mihidimi82/recipe-app:latest
