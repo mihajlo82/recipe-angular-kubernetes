@@ -1,6 +1,6 @@
 # Recipe App
 
-A modern **Recipe Web Application** built with **Angular**, containerized with **Docker**, and deployed locally on **Kubernetes (Minikube)**. The project demonstrates building a full-stack frontend, containerization, and CI/CD workflow simulation.
+A modern **Recipe Web Application** built with **Angular**, containerized with **Docker**, and deployed locally on **Kubernetes (Minikube)**. The project demonstrates building Angular app, containerization, and CI/CD workflow simulation.
 
 ---
 
