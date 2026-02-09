@@ -1,0 +1,14 @@
+<div class="filter-bar">
+  <div class="buttons">
+    <button 
+      *ngFor="let type of types"
+      (click)="onFilter(type)">
+      {{ type }}
+    </button>
+  </div>
+
+  <input
+    type="text"
+    placeholder="Search recipes..."
+    (input)="onSearch($event)">
+</div>

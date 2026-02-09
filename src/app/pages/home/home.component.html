@@ -1,0 +1,19 @@
+<h1>Recipe App</h1>
+
+<p>Number of recipes: {{ filteredRecipes.length }}</p>
+
+
+<app-filter-bar
+  (filter)="filterRecipes($event)"
+  (search)="searchRecipes($event)">
+</app-filter-bar>
+
+<div class="recipe-grid">
+  <app-recipe-card
+    *ngFor="let recipe of filteredRecipes"
+    [recipe]="recipe">
+  </app-recipe-card>
+</div>
+
+
+<router-outlet></router-outlet>

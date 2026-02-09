@@ -1,0 +1,10 @@
+<a [routerLink]="['/recipe', recipe.id]" class="card-link">
+  <div class="card">
+    <img [src]="recipe.imageUrl" [alt]="recipe.name">
+    <div class="card-content">
+      <h3>{{ recipe.name }}</h3>
+      <p class="type">{{ recipe.type }}</p>
+      <p class="prep-time">Prep: {{ recipe.prepTime }}</p>
+    </div>
+  </div>
+</a>

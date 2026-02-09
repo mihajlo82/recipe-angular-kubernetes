@@ -1,0 +1,19 @@
+<div *ngIf="recipe; else notFound" class="detail-container">
+  <h1>{{ recipe.name }}</h1>
+  <img [src]="recipe.imageUrl" [alt]="recipe.name">
+  <p><strong>Type:</strong> {{ recipe.type }}</p>
+  <p><strong>Prep Time:</strong> {{ recipe.prepTime }}</p>
+  <h3>Ingredients:</h3>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+  </ul>
+  <h3>Instructions:</h3>
+  <p>{{ recipe.instructions }}</p>
+</div>
+
+<ng-template #notFound>
+  <p>Recipe not found!</p>
+</ng-template>
+
+
+<router-outlet></router-outlet>
